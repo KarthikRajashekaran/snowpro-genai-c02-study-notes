@@ -40,6 +40,25 @@ Comprehensive study notes for the **Snowflake SnowPro Specialty: Generative AI**
 - **Governance** — model allowlists, `CORTEX_*_USER` roles, usage-history views, object tagging, **Cortex Guard**, **AI_REDACT**, and **AI Observability with TruLens**.
 - **Document Processing** — `AI_PARSE_DOCUMENT` (OCR vs LAYOUT, `page_split`, `page_limit`), `AI_EXTRACT`, Streams/Tasks pipelines, `GET_PRESIGNED_URL` / `BUILD_SCOPED_FILE_URL`, **arctic-extract fine-tuning**.
 
+## 🌐 Key Emphasis Areas (Cross-Cutting Themes)
+
+Three themes run across every domain of the C02 exam and the native platform stack. Use this as a lens — each is examined *in combination* with governance, cost, and the data itself, not in isolation.
+
+### 1. Cortex AI & RAG Architectures
+*Leverage LLMs natively inside the Data Cloud while maintaining enterprise governance and security.*
+- **What to know:** run `AI_COMPLETE` and the `AI_*` family where the data lives (no data movement); build RAG with Cortex Search (parse → chunk → embed → retrieve → generate); keep it governed with RBAC, model allowlists, Cortex Guard, `AI_REDACT`, and evaluate it with TruLens.
+- **Where it's covered:** [1.1](./1_Snowflake_for_Gen_AI_Overview/1.1_Snowflake_Cortex_Overview.md) · [1.4 Cortex Search](./1_Snowflake_for_Gen_AI_Overview/1.4_Cortex_Search_Analyst_Semantic_Views.md) · [2.2](./2_Snowflake_Gen_AI_and_LLM_Functions/2.2_Cortex_LLM_Complete_Functions.md) · [2.4](./2_Snowflake_Gen_AI_and_LLM_Functions/2.4_Data_Analysis_By_Use_Case.md) · [Scenario: RAG](./scenarios/01_Building_RAG_Applications.md) · governance in [3.1](./3_Snowflake_Gen_AI_Governance/3.1_Model_Access_Controls.md) & [3.4](./3_Snowflake_Gen_AI_Governance/3.4_AI_Observability.md)
+
+### 2. Vector Search & Embeddings
+*Integrate vector data types and similarity search seamlessly with structured data assets.*
+- **What to know:** the native `VECTOR` data type; generate embeddings with `AI_EMBED`; pick the right metric (`VECTOR_COSINE_SIMILARITY` / `VECTOR_L2_DISTANCE` / `VECTOR_INNER_PRODUCT`); join semantic similarity against structured columns in ordinary SQL; chunking with `SPLIT_TEXT_*`; when to use raw vector search vs managed Cortex Search vs Cortex Analyst over structured/semantic data.
+- **Where it's covered:** [1.3 Vector Data Types](./1_Snowflake_for_Gen_AI_Overview/1.3_Vector_Data_Types_Operations.md) · [2.3 Vector & Helper Functions](./2_Snowflake_Gen_AI_and_LLM_Functions/2.3_Vector_and_Helper_Functions.md) · [2.4 (structured vs unstructured)](./2_Snowflake_Gen_AI_and_LLM_Functions/2.4_Data_Analysis_By_Use_Case.md) · [1.4 (Analyst over structured)](./1_Snowflake_for_Gen_AI_Overview/1.4_Cortex_Search_Analyst_Semantic_Views.md)
+
+### 3. Model Deployment & Agentic Workflows
+*Streamline prompt engineering, fine-tuning, and LLM orchestration directly where data resides.*
+- **What to know:** prompt engineering (the `PROMPT` helper, structured outputs, `AI_EXTRACT` prompting); Cortex Fine-tuning and `arctic-extract` fine-tuning; bring/deploy models via **Model Registry** and **Snowpark Container Services**; orchestrate multi-step reasoning with **Cortex Agents** and **Snowflake Intelligence**; operationalize inside pipelines with Streams/Tasks — all in-place, no data egress.
+- **Where it's covered:** [1.5 Agents, Intelligence & Code](./1_Snowflake_for_Gen_AI_Overview/1.5_Agents_Intelligence_and_Code.md) · [1.6 Bringing Your Own Models](./1_Snowflake_for_Gen_AI_Overview/1.6_Bringing_Your_Own_Models.md) · [2.2 (prompting/structured)](./2_Snowflake_Gen_AI_and_LLM_Functions/2.2_Cortex_LLM_Complete_Functions.md) · [2.5 (orchestration & pipelines)](./2_Snowflake_Gen_AI_and_LLM_Functions/2.5_Chat_Interfaces_and_Pipelines.md) · [4.2 (arctic-extract fine-tuning)](./4_Snowflake_Document_AI/4.2_Document_Pipelines_and_Optimization.md)
+
 ## 🚀 Quick Access
 
 ### Domain 1 — Overview & Architecture
